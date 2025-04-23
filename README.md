@@ -1,14 +1,25 @@
 # Wind Network
 
-Wind Network is a decentralized Solana indexer application built in Rust that leverages libp2p for peer-to-peer networking and Jito restaking for validator security. The indexer processes blockchain data in real-time through a distributed network of nodes using Solana's Geyser plugin interface.
+Wind Network is a decentralized data indexing and storage infrastructure for Solana that enables the development of advanced AI applications. Our platform processes and indexes blockchain data in real-time through a distributed network of nodes, providing structured data formats optimized for machine learning models and LLMs to train on Solana data.
 
 ## Key Features
 
+- **AI-Ready Data Formats**: Structured blockchain data optimized for machine learning models and LLMs
 - **Decentralized Architecture**: Powered by libp2p for robust peer-to-peer communication
-- **Real-time Indexing**: Process Solana blockchain data as it happens
-- **Jito Restaking**: Enhanced security through validator restaking
+- **Real-time Data Streams**: Process and index Solana blockchain data as it happens
+- **LLM Training Data**: High-quality datasets for training language models on blockchain activity
+- **Analytics Infrastructure**: Foundation for building custom analytics and insight applications
+- **Enhanced Security**: Protected by Jito restaking with economic guarantees for data integrity
 - **High Performance**: Optimized for throughput and low latency
-- **Horizontal Scaling**: Distributed design for scalability
+- **Horizontal Scaling**: Distributed design for unlimited scalability
+
+## AI Application Use Cases
+
+- **DeFi Analytics Tools**: Build applications that analyze market data, monitor liquidity, and track transactions
+- **NFT Intelligence**: Create tools for collection analytics, rarity insights, and trading pattern detection
+- **Gaming Analytics**: Develop applications for player behavior analysis and in-game economy monitoring
+- **Developer Platforms**: Build tools for smart contract usage metrics and network health monitoring
+- **Research Applications**: Enable historical data analysis, trend identification, and market intelligence
 
 ## Getting Started
 
@@ -32,12 +43,15 @@ Then open [http://localhost:3000](http://localhost:3000) in your browser.
 - **crates/windexer-jito-staking**: Jito restaking and NCN integration
 - **crates/windexer-network**: libp2p networking and consensus
 - **crates/windexer-store**: Data persistence and caching layer
+- **crates/windexer-indexer**: Data indexing and formatting for AI consumption
+- **crates/windexer-analytics**: Data pipelines for analytics applications
 
 ## Documentation
 
 Our documentation is built using [Fumadocs](https://fumadocs.vercel.app) and provides comprehensive guides on:
 
 - Network architecture
+- Data formats for AI
 - API reference
 - Getting started guides
 - Security model
