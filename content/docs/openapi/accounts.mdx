@@ -1,0 +1,190 @@
+---
+title: Account Endpoints
+description: API endpoints for Solana accounts
+---
+
+# Account Endpoints
+
+These endpoints allow you to fetch information about Solana accounts indexed by Wind Network.
+
+## Get Account
+
+```
+GET /v1/accounts/{address}
+```
+
+Retrieves detailed information about a Solana account by its address.
+
+### Path Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| address | string | The Solana account address (base58 encoded) |
+
+### Query Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| commitment | string | The commitment level: `processed`, `confirmed`, or `finalized` (default: `finalized`) |
+
+### Response
+
+**200 OK**
+
+```json
+{
+  "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+  "lamports": 10290815,
+  "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+  "executable": true,
+  "rent_epoch": 327,
+  "data": "...",
+  "data_base64": "...",
+  "parsed_data": {
+    // Program-specific parsed data if available
+  },
+  "updated_at": "2023-05-15T14:32:10Z"
+}
+```
+
+**404 Not Found**
+
+```json
+{
+  "error": "Account not found",
+  "code": 404
+}
+```
+
+### Example
+
+```bash
+curl -X GET "https://api.wind.network/v1/accounts/TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA" \
+  -H "X-API-Key: your_api_key_here"
+```
+
+## List Account Transactions
+
+```
+GET /v1/accounts/{address}/transactions
+```
+
+Lists transactions involving the specified account.
+
+### Path Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| address | string | The Solana account address (base58 encoded) |
+
+### Query Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| limit | integer | Number of results per page (default: 50, max: 1000) |
+| cursor | string | Cursor for fetching the next page |
+| start_time | string | Filter by start time (ISO 8601 format) |
+| end_time | string | Filter by end time (ISO 8601 format) |
+| commitment | string | The commitment level: `processed`, `confirmed`, or `finalized` (default: `finalized`) |
+
+### Response
+
+**200 OK**
+
+```json
+{
+  "transactions": [
+    {
+      "signature": "5UfgccMvubS3mYjvWgwEy6ewQQRXDFy66WcGtrNeuGXrr9ATYfkP8adKsVvofNViqoYmGcNQ4hdCTjdLQZXS69ve",
+      "slot": 172868170,
+      "block_time": 1684160530,
+      "fee": 5000,
+      "status": "confirmed",
+      "err": null,
+      "instruction_count": 3
+    }
+    // More transactions...
+  ],
+  "pagination": {
+    "limit": 50,
+    "next_cursor": "eyJzaWduYXR1cmUiOiI1VWZnY2NNdnViUzNtWWp2V2d3RXk2ZXdRUVJYREZ5NjZXY0d0ck5ldUdYcnI5QVRZZmtQOGFkS3NWdm9mTlZpcW9ZbUdjTlE0aGRDVGpkTFFaWFM2OXZlIn0="
+  }
+}
+```
+
+### Example
+
+```bash
+curl -X GET "https://api.wind.network/v1/accounts/TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA/transactions?limit=10" \
+  -H "X-API-Key: your_api_key_here"
+```
+
+## Get Account Program Data
+
+```
+GET /v1/accounts/{address}/program-data
+```
+
+Retrieves program-specific parsed data for accounts owned by known programs (e.g., Token Program, SPL programs).
+
+### Path Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| address | string | The Solana account address (base58 encoded) |
+
+### Response
+
+**200 OK**
+
+For a token account:
+
+```json
+{
+  "program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+  "parsed_data": {
+    "type": "account",
+    "info": {
+      "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "owner": "8VRnd8ioFKpNpBznCEFd6uiT55P4Zy1XgF6Jj8Efc7vY",
+      "state": "initialized",
+      "isNative": false,
+      "tokenAmount": {
+        "amount": "100000000",
+        "decimals": 6,
+        "uiAmount": 100,
+        "uiAmountString": "100"
+      },
+      "delegateOption": false,
+      "closeAuthorityOption": false
+    }
+  },
+  "updated_at": "2023-05-15T14:32:10Z"
+}
+```
+
+**404 Not Found**
+
+```json
+{
+  "error": "Account not found or program-specific data not available",
+  "code": 404
+}
+```
+
+### Example
+
+```bash
+curl -X GET "https://api.wind.network/v1/accounts/8VRnd8ioFKpNpBznCEFd6uiT55P4Zy1XgF6Jj8Efc7vY/program-data" \
+  -H "X-API-Key: your_api_key_here"
+```
+
+## Monitor Account Changes
+
+```
+GET /v1/accounts/{address}/monitor
+```
+
+Creates a WebSocket connection to monitor changes to a specific account.
+
+See the [WebSocket API](/docs/openapi/websocket) documentation for more information on establishing and using WebSocket connections. 

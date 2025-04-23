@@ -1,0 +1,86 @@
+---
+title: Installation
+description: Detailed installation instructions for Wind Network
+---
+
+# Installing Wind Network
+
+This guide provides detailed installation instructions for setting up a Wind Network node from source or using pre-built binaries.
+
+## Installing from Source
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/aletheia/wind-network.git
+cd wind-network
+```
+
+### 2. Build the project
+
+```bash
+cargo build --release
+```
+
+This will build all the crates in the workspace.
+
+### 3. Install the binary
+
+```bash
+cargo install --path crates/windexer-network
+```
+
+## Using Pre-built Binaries
+
+We provide pre-built binaries for major platforms:
+
+### Linux (x86_64)
+
+```bash
+curl -L https://github.com/aletheia/wind-network/releases/latest/download/wind-network-linux-x86_64.tar.gz | tar xz
+cd wind-network
+./install.sh
+```
+
+### macOS (x86_64)
+
+```bash
+curl -L https://github.com/aletheia/wind-network/releases/latest/download/wind-network-macos-x86_64.tar.gz | tar xz
+cd wind-network
+./install.sh
+```
+
+## Docker Installation
+
+We provide a Docker image for easy deployment:
+
+```bash
+docker pull windnetwork/node:latest
+```
+
+Create a configuration file `config.toml`:
+
+```toml
+[network]
+listen_addr = "0.0.0.0:9000"
+bootstrap_nodes = ["multiaddr/p2p/peer-id-1", "multiaddr/p2p/peer-id-2"]
+
+[geyser]
+plugin_path = "/path/to/geyser-plugin.so"
+
+[storage]
+data_dir = "/data"
+```
+
+Run the container:
+
+```bash
+docker run -p 9000:9000 -p 8080:8080 \
+  -v /path/to/config.toml:/etc/wind/config.toml \
+  -v /path/to/data:/data \
+  windnetwork/node:latest
+```
+
+## Next Steps
+
+Once you've installed Wind Network, proceed to [configuration](/docs/getting-started/configuration) to set up your node. 

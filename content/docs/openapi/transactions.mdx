@@ -1,0 +1,243 @@
+---
+title: Transaction Endpoints
+description: API endpoints for Solana transactions
+---
+
+# Transaction Endpoints
+
+These endpoints allow you to fetch information about Solana transactions indexed by Wind Network.
+
+## Get Transaction
+
+```
+GET /v1/transactions/{signature}
+```
+
+Retrieves detailed information about a transaction by its signature.
+
+### Path Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| signature | string | The transaction signature (base58 encoded) |
+
+### Query Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| commitment | string | The commitment level: `processed`, `confirmed`, or `finalized` (default: `finalized`) |
+
+### Response
+
+**200 OK**
+
+```json
+{
+  "signature": "5UfgccMvubS3mYjvWgwEy6ewQQRXDFy66WcGtrNeuGXrr9ATYfkP8adKsVvofNViqoYmGcNQ4hdCTjdLQZXS69ve",
+  "slot": 172868170,
+  "block_time": 1684160530,
+  "fee": 5000,
+  "recent_block_hash": "Gzs3CdG4NbcxPv1RQoMqx39NBd9FJdXqrwMFs1jRXxQt",
+  "status": "confirmed",
+  "err": null,
+  "accounts": [
+    "8VRnd8ioFKpNpBznCEFd6uiT55P4Zy1XgF6Jj8Efc7vY",
+    "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "11111111111111111111111111111111",
+    "SysvarRent111111111111111111111111111111111"
+  ],
+  "instructions": [
+    {
+      "program_id": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      "accounts": [
+        "8VRnd8ioFKpNpBznCEFd6uiT55P4Zy1XgF6Jj8Efc7vY"
+      ],
+      "data": "...",
+      "parsed": {
+        // Program-specific parsed data if available
+      }
+    }
+    // More instructions...
+  ],
+  "log_messages": [
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+    "Program log: Instruction: Transfer",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+  ],
+  "pre_balances": [10000000, 5000000],
+  "post_balances": [9995000, 5005000],
+  "pre_token_balances": [
+    {
+      "account_index": 1,
+      "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "owner": "8VRnd8ioFKpNpBznCEFd6uiT55P4Zy1XgF6Jj8Efc7vY",
+      "ui_token_amount": {
+        "amount": "100000000",
+        "decimals": 6,
+        "uiAmount": 100,
+        "uiAmountString": "100"
+      }
+    }
+  ],
+  "post_token_balances": [
+    {
+      "account_index": 1,
+      "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "owner": "8VRnd8ioFKpNpBznCEFd6uiT55P4Zy1XgF6Jj8Efc7vY",
+      "ui_token_amount": {
+        "amount": "95000000",
+        "decimals": 6,
+        "uiAmount": 95,
+        "uiAmountString": "95"
+      }
+    }
+  ]
+}
+```
+
+**404 Not Found**
+
+```json
+{
+  "error": "Transaction not found",
+  "code": 404
+}
+```
+
+### Example
+
+```bash
+curl -X GET "https://api.wind.network/v1/transactions/5UfgccMvubS3mYjvWgwEy6ewQQRXDFy66WcGtrNeuGXrr9ATYfkP8adKsVvofNViqoYmGcNQ4hdCTjdLQZXS69ve" \
+  -H "X-API-Key: your_api_key_here"
+```
+
+## List Transactions
+
+```
+GET /v1/transactions
+```
+
+Lists transactions based on filter criteria.
+
+### Query Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| limit | integer | Number of results per page (default: 50, max: 1000) |
+| cursor | string | Cursor for fetching the next page |
+| start_time | string | Filter by start time (ISO 8601 format) |
+| end_time | string | Filter by end time (ISO 8601 format) |
+| block | integer | Filter by block number |
+| slot | integer | Filter by slot number |
+| program_id | string | Filter by program ID |
+| status | string | Filter by status (`success`, `failure`) |
+| commitment | string | The commitment level: `processed`, `confirmed`, or `finalized` (default: `finalized`) |
+
+### Response
+
+**200 OK**
+
+```json
+{
+  "transactions": [
+    {
+      "signature": "5UfgccMvubS3mYjvWgwEy6ewQQRXDFy66WcGtrNeuGXrr9ATYfkP8adKsVvofNViqoYmGcNQ4hdCTjdLQZXS69ve",
+      "slot": 172868170,
+      "block_time": 1684160530,
+      "fee": 5000,
+      "status": "confirmed",
+      "err": null,
+      "instruction_count": 3
+    }
+    // More transactions...
+  ],
+  "pagination": {
+    "limit": 50,
+    "next_cursor": "eyJzaWduYXR1cmUiOiI1VWZnY2NNdnViUzNtWWp2V2d3RXk2ZXdRUVJYREZ5NjZXY0d0ck5ldUdYcnI5QVRZZmtQOGFkS3NWdm9mTlZpcW9ZbUdjTlE0aGRDVGpkTFFaWFM2OXZlIn0="
+  }
+}
+```
+
+### Example
+
+```bash
+curl -X GET "https://api.wind.network/v1/transactions?program_id=TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA&limit=10" \
+  -H "X-API-Key: your_api_key_here"
+```
+
+## Get Transaction Signatures By Address
+
+```
+GET /v1/transactions/signatures
+```
+
+Retrieves transaction signatures involving a specific address.
+
+### Query Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| address | string | The Solana account address (base58 encoded) (required) |
+| limit | integer | Number of results per page (default: 50, max: 1000) |
+| before | string | Get signatures before this signature (base58 encoded) |
+| until | string | Get signatures until this signature (base58 encoded) |
+| commitment | string | The commitment level: `processed`, `confirmed`, or `finalized` (default: `finalized`) |
+
+### Response
+
+**200 OK**
+
+```json
+{
+  "signatures": [
+    {
+      "signature": "5UfgccMvubS3mYjvWgwEy6ewQQRXDFy66WcGtrNeuGXrr9ATYfkP8adKsVvofNViqoYmGcNQ4hdCTjdLQZXS69ve",
+      "slot": 172868170,
+      "block_time": 1684160530,
+      "err": null
+    }
+    // More signature info...
+  ]
+}
+```
+
+### Example
+
+```bash
+curl -X GET "https://api.wind.network/v1/transactions/signatures?address=8VRnd8ioFKpNpBznCEFd6uiT55P4Zy1XgF6Jj8Efc7vY&limit=10" \
+  -H "X-API-Key: your_api_key_here"
+```
+
+## Get Transaction Count
+
+```
+GET /v1/transactions/count
+```
+
+Returns the total number of transactions processed by the network.
+
+### Query Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| program_id | string | Filter by program ID |
+| start_time | string | Filter by start time (ISO 8601 format) |
+| end_time | string | Filter by end time (ISO 8601 format) |
+| status | string | Filter by status (`success`, `failure`) |
+
+### Response
+
+**200 OK**
+
+```json
+{
+  "count": 12345678
+}
+```
+
+### Example
+
+```bash
+curl -X GET "https://api.wind.network/v1/transactions/count?program_id=TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA" \
+  -H "X-API-Key: your_api_key_here"
+``` 

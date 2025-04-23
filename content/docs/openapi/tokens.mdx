@@ -1,0 +1,296 @@
+---
+title: Token Endpoints
+description: API endpoints for Solana SPL tokens
+---
+
+# Token Endpoints
+
+These endpoints allow you to fetch information about SPL tokens indexed by Wind Network.
+
+## Get Token Metadata
+
+```
+GET /v1/tokens/{mint}
+```
+
+Retrieves metadata for a specific SPL token by its mint address.
+
+### Path Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| mint | string | The token mint address (base58 encoded) |
+
+### Response
+
+**200 OK**
+
+```json
+{
+  "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+  "decimals": 6,
+  "supply": "10000000000000000",
+  "symbol": "USDC",
+  "name": "USD Coin",
+  "icon": "https://cdn.jsdelivr.net/gh/solana-labs/token-list@main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+  "website": "https://www.centre.io/",
+  "description": "USD Coin (USDC) is a stablecoin issued by regulated financial institutions, backed by fully reserved assets, and redeemable on a 1:1 basis for US dollars.",
+  "is_nft": false,
+  "freeze_authority": "3sNBr7kMccME4juBNinJXQmBbDZCQ4HUBy8pLQsxKKkN",
+  "mint_authority": "3sNBr7kMccME4juBNinJXQmBbDZCQ4HUBy8pLQsxKKkN",
+  "updated_at": "2023-05-15T14:32:10Z"
+}
+```
+
+**404 Not Found**
+
+```json
+{
+  "error": "Token not found",
+  "code": 404
+}
+```
+
+### Example
+
+```bash
+curl -X GET "https://api.wind.network/v1/tokens/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v" \
+  -H "X-API-Key: your_api_key_here"
+```
+
+## List Token Accounts
+
+```
+GET /v1/tokens/{mint}/accounts
+```
+
+Lists all accounts holding a specific token.
+
+### Path Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| mint | string | The token mint address (base58 encoded) |
+
+### Query Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| limit | integer | Number of results per page (default: 50, max: 1000) |
+| cursor | string | Cursor for fetching the next page |
+| min_balance | integer | Filter accounts with balance greater than or equal to this value |
+| max_balance | integer | Filter accounts with balance less than or equal to this value |
+
+### Response
+
+**200 OK**
+
+```json
+{
+  "accounts": [
+    {
+      "address": "8VRnd8ioFKpNpBznCEFd6uiT55P4Zy1XgF6Jj8Efc7vY",
+      "owner": "JBZSGNJkEFsnA9mQ4Ye3GQH9XpSBF6mKSSUdgjJm75RY",
+      "amount": "100000000",
+      "ui_amount": 100,
+      "ui_amount_string": "100",
+      "delegated_amount": "0",
+      "delegate": null,
+      "is_native": false,
+      "close_authority": null,
+      "updated_at": "2023-05-15T14:32:10Z"
+    }
+    // More accounts...
+  ],
+  "pagination": {
+    "limit": 50,
+    "next_cursor": "eyJhZGRyZXNzIjoiOFZSbmQ4aW9GS3BOcEJ6bkNFRmQ2dWlUNTVQNFp5MVhnRjZKajhFZmM3dlkifQ=="
+  }
+}
+```
+
+### Example
+
+```bash
+curl -X GET "https://api.wind.network/v1/tokens/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/accounts?limit=10&min_balance=1000000" \
+  -H "X-API-Key: your_api_key_here"
+```
+
+## Get Token Holder Count
+
+```
+GET /v1/tokens/{mint}/holder-count
+```
+
+Returns the total number of accounts holding a specific token.
+
+### Path Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| mint | string | The token mint address (base58 encoded) |
+
+### Response
+
+**200 OK**
+
+```json
+{
+  "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+  "holder_count": 12345
+}
+```
+
+### Example
+
+```bash
+curl -X GET "https://api.wind.network/v1/tokens/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/holder-count" \
+  -H "X-API-Key: your_api_key_here"
+```
+
+## Get Token Account Balances
+
+```
+GET /v1/tokens/balances/{owner}
+```
+
+Lists all token account balances for a specific owner address.
+
+### Path Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| owner | string | The owner address (base58 encoded) |
+
+### Query Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| limit | integer | Number of results per page (default: 50, max: 1000) |
+| cursor | string | Cursor for fetching the next page |
+
+### Response
+
+**200 OK**
+
+```json
+{
+  "balances": [
+    {
+      "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "address": "8VRnd8ioFKpNpBznCEFd6uiT55P4Zy1XgF6Jj8Efc7vY",
+      "amount": "100000000",
+      "ui_amount": 100,
+      "ui_amount_string": "100",
+      "decimals": 6,
+      "symbol": "USDC",
+      "name": "USD Coin"
+    },
+    {
+      "mint": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+      "address": "CVgcE8DT79UMVeLyZHCGLJyCCSGjDfJgtNucS9zsGP5X",
+      "amount": "5000000000",
+      "ui_amount": 5000,
+      "ui_amount_string": "5000",
+      "decimals": 6,
+      "symbol": "USDT",
+      "name": "USDT"
+    }
+    // More token balances...
+  ],
+  "pagination": {
+    "limit": 50,
+    "next_cursor": "eyJtaW50IjoiRXM5dk1GcnphQ0VSbUpmckY0SDJGWUQ0S0NvTmtZMTFNY0NlOEJlbndOWUIifQ=="
+  }
+}
+```
+
+### Example
+
+```bash
+curl -X GET "https://api.wind.network/v1/tokens/balances/JBZSGNJkEFsnA9mQ4Ye3GQH9XpSBF6mKSSUdgjJm75RY" \
+  -H "X-API-Key: your_api_key_here"
+```
+
+## Get Token Supply
+
+```
+GET /v1/tokens/{mint}/supply
+```
+
+Retrieves the current supply of a specific token.
+
+### Path Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| mint | string | The token mint address (base58 encoded) |
+
+### Response
+
+**200 OK**
+
+```json
+{
+  "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+  "supply": "10000000000000000",
+  "decimals": 6,
+  "ui_supply": 10000000000,
+  "ui_supply_string": "10000000000"
+}
+```
+
+### Example
+
+```bash
+curl -X GET "https://api.wind.network/v1/tokens/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/supply" \
+  -H "X-API-Key: your_api_key_here"
+```
+
+## List Top Token Holders
+
+```
+GET /v1/tokens/{mint}/largest
+```
+
+Lists the largest token holders for a specific mint.
+
+### Path Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| mint | string | The token mint address (base58 encoded) |
+
+### Query Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| limit | integer | Number of results to return (default: 20, max: 100) |
+
+### Response
+
+**200 OK**
+
+```json
+{
+  "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+  "holders": [
+    {
+      "address": "8VRnd8ioFKpNpBznCEFd6uiT55P4Zy1XgF6Jj8Efc7vY",
+      "owner": "JBZSGNJkEFsnA9mQ4Ye3GQH9XpSBF6mKSSUdgjJm75RY",
+      "amount": "1000000000000",
+      "ui_amount": 1000000,
+      "ui_amount_string": "1000000",
+      "percentage": 10.0
+    }
+    // More holders...
+  ]
+}
+```
+
+### Example
+
+```bash
+curl -X GET "https://api.wind.network/v1/tokens/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/largest?limit=10" \
+  -H "X-API-Key: your_api_key_here"
+```

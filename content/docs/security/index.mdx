@@ -1,0 +1,73 @@
+---
+title: Security Model
+description: Understanding Wind Network's security model
+---
+
+# Wind Network Security Model
+
+Wind Network is designed with security as a core principle. As a decentralized Solana indexer, the security of the network is critical to ensure the integrity and availability of indexed data.
+
+## Security Architecture
+
+The Wind Network security architecture is built on several key principles:
+
+### 1. Economic Security via Jito Restaking
+
+Wind Network leverages Jito restaking to provide economic security for the network. Validators must stake SOL tokens to participate in the network, creating economic incentives for honest behavior.
+
+### 2. Distributed Consensus
+
+Wind Network uses a distributed consensus protocol to ensure that nodes agree on the state of indexed data. This provides resilience against attacks and ensures data consistency.
+
+### 3. Cryptographic Verification
+
+All messages in the network are cryptographically signed, ensuring authenticity and integrity of communication between nodes.
+
+### 4. Sybil Resistance
+
+The staking requirement provides resistance against Sybil attacks, where an attacker might attempt to gain control of the network by creating multiple fake identities.
+
+## Threat Model
+
+Wind Network is designed to be resistant to the following threats:
+
+- **51% Attacks**: The consensus mechanism requires a supermajority agreement
+- **Eclipse Attacks**: Multiple peer connections and bootstrap nodes minimize isolation risks
+- **DDoS Attacks**: Distributed architecture provides resilience against denial-of-service attacks
+- **Data Manipulation**: Cryptographic verification prevents unauthorized data modifications
+
+## Security Components
+
+### Validator Security
+
+Validators are required to implement specific security measures:
+
+- Hardware security modules (HSMs) for key management
+- Network isolation for critical components
+- Regular security audits and compliance checks
+
+### Network Security
+
+The p2p network layer implements several security features:
+
+- Encrypted communication between peers
+- Peer authentication and authorization
+- Rate limiting to prevent resource exhaustion
+- Blacklisting of malicious peers
+
+### API Security
+
+The API layer provides configurable security options:
+
+- JWT-based authentication
+- Rate limiting
+- CORS configuration
+- TLS encryption
+
+## Learn More
+
+<Cards>
+  <Card title="Jito Restaking" href="/docs/security/jito-restaking" />
+  <Card title="Threat Model" href="/docs/security/threat-model" />
+  <Card title="Security Best Practices" href="/docs/security/best-practices" />
+</Cards> 

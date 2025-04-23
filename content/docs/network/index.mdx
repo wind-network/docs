@@ -1,0 +1,55 @@
+---
+title: Network Architecture Overview
+description: Understanding Wind Network's decentralized architecture
+---
+
+# Wind Network Architecture
+
+Wind Network is built on a fully decentralized architecture that leverages peer-to-peer (p2p) networking using libp2p. This approach provides high availability, censorship resistance, and horizontal scalability.
+
+## Core Components
+
+The Wind Network architecture consists of several key components:
+
+![Wind Network Architecture](/images/architecture.png)
+
+### Node Types
+
+- **Validator Nodes**: Run by staked validators, these are the core nodes that process and validate Solana blockchain data
+- **Light Nodes**: Run by users who want to access indexed data but don't participate in consensus
+- **Gateway Nodes**: Public-facing nodes that provide API access to external applications
+
+### System Components
+
+1. **Geyser Plugin**: Connects to Solana validators and streams real-time blockchain data
+2. **P2P Network Layer**: Manages connections between nodes using libp2p
+3. **Consensus Module**: Ensures data consistency across the network
+4. **Storage Engine**: Efficiently stores and indexes blockchain data
+5. **API Server**: Provides access to indexed data via RESTful and GraphQL APIs
+
+## Data Flow
+
+The data flows through the system as follows:
+
+1. Solana blockchain generates new blocks and transactions
+2. Wind Network Geyser plugin receives this data in real-time
+3. Data is processed and validated by validator nodes
+4. Consensus is reached on the processed data
+5. Data is stored in the local database
+6. Indexed data is made available via API
+
+## Security Model
+
+Wind Network's security model is based on Jito restaking, which provides economic incentives for honest behavior:
+
+- Validators must stake tokens to participate
+- Malicious behavior can result in slashing of staked tokens
+- The consensus algorithm requires a supermajority agreement
+
+## Learn More
+
+<Cards>
+  <Card title="P2P Network" href="/docs/network/p2p" />
+  <Card title="Consensus Protocol" href="/docs/network/consensus" />
+  <Card title="Data Flow" href="/docs/network/data-flow" />
+</Cards> 

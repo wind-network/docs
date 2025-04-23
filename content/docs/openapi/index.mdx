@@ -1,0 +1,77 @@
+---
+title: Wind Network API
+description: Complete documentation for the Wind Network API
+---
+
+# Wind Network API Reference
+
+The Wind Network API provides programmatic access to indexed Solana blockchain data. This reference guide covers authentication, available endpoints, request/response formats, and includes code examples for working with the API.
+
+## Base URL
+
+```
+https://api.wind.network/v1
+```
+
+## Authentication
+
+The Wind Network API offers two authentication methods:
+
+### API Key Authentication
+
+For most applications, API key authentication is recommended. Include your API key in the request header:
+
+```bash
+curl -X GET "https://api.wind.network/v1/accounts/TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA" \
+  -H "X-API-Key: your_api_key_here"
+```
+
+### JWT Authentication
+
+For advanced use cases requiring user-specific permissions, JWT authentication is available:
+
+```bash
+curl -X GET "https://api.wind.network/v1/accounts/TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA" \
+  -H "Authorization: Bearer your_jwt_token_here"
+```
+
+## Rate Limits
+
+| Plan | Rate Limit | Burst Limit |
+|------|------------|-------------|
+| Free | 60 req/min | 10 req/sec |
+| Pro | 600 req/min | 60 req/sec |
+| Enterprise | Custom | Custom |
+
+When rate limits are exceeded, the API returns a `429 Too Many Requests` status code.
+
+## Pagination
+
+Endpoints that return multiple items are paginated. Use the following query parameters to navigate through results:
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| limit | integer | Number of results per page (default: 50, max: 1000) |
+| cursor | string | Cursor for fetching the next page |
+
+Example:
+
+```bash
+curl -X GET "https://api.wind.network/v1/transactions?limit=100&cursor=eyJpZCI6IjEyMzQ1Njc4OTAifQ==" \
+  -H "X-API-Key: your_api_key_here"
+```
+
+## Versioning
+
+The API version is included in the URL path. The current version is `v1`. Future versions will be released under new paths (e.g., `/v2/`).
+
+## API Categories
+
+<Cards>
+  <Card title="Account Endpoints" href="/docs/openapi/accounts" />
+  <Card title="Transaction Endpoints" href="/docs/openapi/transactions" />
+  <Card title="Program Endpoints" href="/docs/openapi/programs" />
+  <Card title="Token Endpoints" href="/docs/openapi/tokens" />
+  <Card title="NFT Endpoints" href="/docs/openapi/nfts" />
+  <Card title="WebSocket API" href="/docs/openapi/websocket" />
+</Cards>
