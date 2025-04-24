@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "bun build:pre && next build && bun build:post",
+    "build": "npm run build:pre && next build && npm run build:post",
     "build:pre": "tsx ./scripts/pre-build.mts",
     "build:post": "tsx ./scripts/post-build.mts",
     "dev": "next dev --turbopack",
