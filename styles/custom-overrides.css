@@ -1,0 +1,16 @@
+/* Custom overrides for fumadocs-ui classes */
+
+/* Override the container utility from fumadocs-ui */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 100%;
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1400px;
+  }
+} 
