@@ -4,9 +4,10 @@
 
 /* Import custom overrides after Tailwind */
 @import './custom-overrides.css';
+@import './override-arbitrary.css';
 
 @import 'fumadocs-ui/css/neutral.css';
-@import 'fumadocs-ui/css/preset.css';
+@import './fumadocs-override/preset.css';
 @import 'fumadocs-twoslash/twoslash.css';
 
 @keyframes stroke {

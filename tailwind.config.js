@@ -37,7 +37,6 @@ module.exports = {
         '4xl': '56rem',
         '7xl': '80rem',
         'container': '1400px',
-        '[1400px]': '1400px',
       },
       borderRadius: {
         lg: "var(--radius)",
