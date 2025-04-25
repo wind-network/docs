@@ -10,7 +10,7 @@ module.exports = {
     './node_modules/fumadocs-ui/**/*.{js,jsx,ts,tsx}',
   ],
   safelist: [
-    '2xl:max-w-[1400px]',
+    '2xl:max-w-container',
     '2xl:max-w-7xl',
     'max-w-4xl',
     'max-w-lg',
