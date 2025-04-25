@@ -1,6 +1,6 @@
 /* Direct utility class */
 @media (min-width: 1536px) {
-  .\32xl\:max-w-\[1400px\] {
+  .\32xl\:max-w-container {
     max-width: 1400px;
   }
 } 
