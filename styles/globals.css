@@ -4,7 +4,6 @@
 
 /* Import custom overrides after Tailwind */
 @import './custom-overrides.css';
-@import './utilities.css';
 
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';

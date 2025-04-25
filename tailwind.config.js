@@ -18,6 +18,9 @@ module.exports = {
     'max-w-2xl',
     'max-w-3xl'
   ],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   theme: {
     container: {
       center: true,
@@ -34,6 +37,7 @@ module.exports = {
         '4xl': '56rem',
         '7xl': '80rem',
         'container': '1400px',
+        '[1400px]': '1400px',
       },
       borderRadius: {
         lg: "var(--radius)",
