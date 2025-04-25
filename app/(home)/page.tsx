@@ -25,7 +25,7 @@ export default function DocsPage(): React.ReactElement {
           <Link href="/docs/getting-started" className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-lg transition-colors">
             Get Started
           </Link>
-          <Link href="/docs/openapi" className="border border-border hover:bg-fd-accent/50 font-medium py-2 px-6 rounded-lg transition-colors">
+          <Link href="/docs/getting-started" className="border border-border hover:bg-fd-accent/50 font-medium py-2 px-6 rounded-lg transition-colors">
             API Reference
           </Link>
         </div>
@@ -69,7 +69,7 @@ export default function DocsPage(): React.ReactElement {
       {/* Features Grid */}
       <h2 className="text-2xl font-semibold md:text-3xl mb-8 text-center">Unlock the Full Potential of Solana Data</h2>
       <div className="grid grid-cols-1 gap-6 text-left md:grid-cols-2 lg:grid-cols-3 mb-12">
-        <Item href="/docs/ui">
+        <Item href="/docs/getting-started">
           <Icon className="bg-blue-100 dark:bg-blue-950">
             <NetworkIcon className="size-full" />
           </Icon>
@@ -79,7 +79,7 @@ export default function DocsPage(): React.ReactElement {
           </p>
         </Item>
 
-        <Item href="/docs/openapi/programs">
+        <Item href="/docs/getting-started">
           <Icon className="bg-green-100 dark:bg-green-950">
             <BrainCircuitIcon className="size-full" />
           </Icon>
@@ -89,7 +89,7 @@ export default function DocsPage(): React.ReactElement {
           </p>
         </Item>
 
-        <Item href="/docs/openapi/websocket">
+        <Item href="/docs/getting-started">
           <Icon className="bg-purple-100 dark:bg-purple-950">
             <ZapIcon className="size-full" />
           </Icon>
@@ -99,7 +99,7 @@ export default function DocsPage(): React.ReactElement {
           </p>
         </Item>
 
-        <Item href="/docs/openapi">
+        <Item href="/docs/getting-started">
           <Icon className="bg-green-100 dark:bg-green-950">
             <ServerIcon className="size-full" />
           </Icon>
@@ -119,7 +119,7 @@ export default function DocsPage(): React.ReactElement {
           </p>
         </Item>
 
-        <Item href="/docs/security">
+        <Item href="/docs/getting-started">
           <Icon className="bg-amber-100 dark:bg-amber-950">
             <ShieldIcon className="size-full" />
           </Icon>
