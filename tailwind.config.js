@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -9,18 +9,6 @@ module.exports = {
     './content/**/*.{md,mdx}',
     './node_modules/fumadocs-ui/**/*.{js,jsx,ts,tsx}',
   ],
-  safelist: [
-    '2xl:max-w-container',
-    '2xl:max-w-7xl',
-    'max-w-4xl',
-    'max-w-lg',
-    'max-w-xl',
-    'max-w-2xl',
-    'max-w-3xl'
-  ],
-  future: {
-    hoverOnlyWhenSupported: true,
-  },
   theme: {
     container: {
       center: true,

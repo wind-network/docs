@@ -6,8 +6,11 @@
 @import './custom-overrides.css';
 @import './override-arbitrary.css';
 
-@import 'fumadocs-ui/css/neutral.css';
+/* Override Fumadocs with our simpler CSS */
 @import './fumadocs-override/preset.css';
+
+/* Import Fumadocs components that don't cause issues */
+@import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-twoslash/twoslash.css';
 
 @keyframes stroke {

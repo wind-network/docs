@@ -1,6 +1,6 @@
 module.exports = {
   plugins: {
-    tailwindcss: {
+    '@tailwindcss/postcss': {
       config: './tailwind.config.js',
       mode: 'jit',
     },
