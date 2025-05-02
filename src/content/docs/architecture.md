@@ -1,15 +1,15 @@
 # Architecture
 
-wIndexer's architecture is designed for scalability, reliability, and performance. The system is composed of several interconnected components that work together to provide a comprehensive indexing solution.
+wind network's architecture is designed for scalability, reliability, and performance. The system is composed of several interconnected components that work together to provide a comprehensive indexing solution.
 
 ## Components
 
-wIndexer consists of several modular components:
+wind network consists of several modular components:
 
 * **Geyser Plugin**: Connects directly to Solana validators to stream real-time data
 * **Node Network**: P2P network for data propagation and redundancy
 * **Indexers**: Specialized nodes that index and serve data via API
-* **Client SDK**: Libraries for interacting with wIndexer services
+* **Client SDK**: Libraries for interacting with wind network services
 
 ## Data Flow
 
@@ -20,7 +20,7 @@ wIndexer consists of several modular components:
 
 ## Storage Options
 
-wIndexer supports multiple storage backends to suit different use cases:
+wind network supports multiple storage backends to suit different use cases:
 
 ### RocksDB (Default)
 
@@ -48,7 +48,7 @@ Relational database with rich query capabilities.
 
 ## Hot/Cold Storage Architecture
 
-wIndexer supports a hot/cold storage architecture:
+wind network supports a hot/cold storage architecture:
 
 1. **Hot Storage**: Recent data stored in RocksDB for fast access
 2. **Cold Storage**: Historical data archived in Parquet or PostgreSQL

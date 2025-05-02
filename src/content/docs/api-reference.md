@@ -1,6 +1,6 @@
 # API Reference
 
-wIndexer provides both HTTP and WebSocket APIs for querying indexed blockchain data.
+wind network provides both HTTP and WebSocket APIs for querying indexed blockchain data.
 
 ## HTTP API
 
@@ -186,7 +186,7 @@ To unsubscribe from a subscription:
 
 ## TypeScript SDK
 
-wIndexer provides a TypeScript SDK for easy integration with web applications.
+wind network provides a TypeScript SDK for easy integration with web applications.
 
 ### Installation
 
