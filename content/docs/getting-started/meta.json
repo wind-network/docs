@@ -1,7 +1,0 @@
-{
-  "title": "Getting Started",
-  "description": "Get started with Wind Network",
-  "icon": "Layers",
-  "root": true,
-  "pages": ["index", "installation", "configuration"]
-} 
