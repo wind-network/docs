@@ -1,7 +1,0 @@
-{
-  "title": "Security & Staking",
-  "description": "Wind Network security model and Jito restaking",
-  "icon": "Shield",
-  "root": true,
-  "pages": ["index", "jito-restaking", "threat-model", "best-practices"]
-} 

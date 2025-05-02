@@ -1,7 +1,0 @@
-{
-  "title": "Network Architecture",
-  "description": "Wind Network's decentralized architecture",
-  "icon": "Network",
-  "root": true,
-  "pages": ["index", "p2p", "consensus", "data-flow"]
-} 
