@@ -8,7 +8,7 @@ export default function DocsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-white text-#0090FF">
       <div className="flex">
         <DocsSidebar />
         <main className="flex-1 px-6 py-8">

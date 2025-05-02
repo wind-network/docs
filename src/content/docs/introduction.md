@@ -1,10 +1,10 @@
-# Introduction to wIndexer
+# Introduction to wind network
 
-wIndexer is a high-performance, distributed indexing solution for the Solana blockchain. It enables developers to efficiently index, query, and monitor blockchain data through a decentralized peer-to-peer network of indexing nodes.
+wind network is a high-performance, distributed indexing solution for the Solana blockchain. It enables developers to efficiently index, query, and monitor blockchain data through a decentralized peer-to-peer network of indexing nodes.
 
 ## Overview
 
-wIndexer provides a robust infrastructure for indexing Solana blockchain data in a decentralized manner. Built with a focus on performance and reliability, it offers an alternative to centralized indexing solutions.
+wind network provides a robust infrastructure for indexing Solana blockchain data in a decentralized manner. Built with a focus on performance and reliability, it offers an alternative to centralized indexing solutions.
 
 ## Key Features
 
@@ -15,9 +15,9 @@ wIndexer provides a robust infrastructure for indexing Solana blockchain data in
 * **Performant storage layer** for fast data retrieval
 * **Jito MEV integration** for tip routing and restaking capabilities
 
-## Why wIndexer?
+## Why wind network?
 
-Traditional blockchain indexers often rely on centralized infrastructure, creating potential points of failure and limiting the resilience of applications built on top of them. wIndexer's distributed approach addresses these limitations by:
+Traditional blockchain indexers often rely on centralized infrastructure, creating potential points of failure and limiting the resilience of applications built on top of them. wind network's distributed approach addresses these limitations by:
 
 1. Enhancing reliability through a decentralized network of nodes
 2. Improving data availability with redundant storage

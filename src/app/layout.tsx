@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "windexer",
+  title: "wind network",
   description: "decentralized indexing on solana",
 };
 

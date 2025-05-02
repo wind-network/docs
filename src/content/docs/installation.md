@@ -1,10 +1,10 @@
 # Installation
 
-This guide covers the installation and setup process for wIndexer.
+This guide covers the installation and setup process for wind network.
 
 ## Prerequisites
 
-Before installing wIndexer, ensure you have the following prerequisites:
+Before installing wind network, ensure you have the following prerequisites:
 
 * Rust 1.70+ and Cargo
 * Node.js 16+ and npm/yarn (for TypeScript examples)
@@ -52,7 +52,7 @@ make run-indexer-1
 
 ## Running with Docker
 
-wIndexer also provides Docker images for easy deployment:
+wind network also provides Docker images for easy deployment:
 
 ```bash
 cd deployment/docker

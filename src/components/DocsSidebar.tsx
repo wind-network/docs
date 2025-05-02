@@ -10,7 +10,7 @@ const sidebarItems = [
   { title: 'Architecture', href: '/docs/architecture' },
   { title: 'Installation', href: '/docs/installation' },
   { title: 'API Reference', href: '/docs/api-reference' },
-  { title: 'Examples', href: '/docs/examples' },
+  { title: 'Examples', href: '/docs/indexing-example' },
 ];
 
 export default function DocsSidebar() {
