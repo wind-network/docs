@@ -1,8 +1,3 @@
----
-title: "Indexing & Retrieving Data"
-description: "Learn how to index and retrieve blockchain data using the wIndexer network"
----
-
 # Indexing & Retrieving Data
 
 This guide demonstrates how to index Solana blockchain data and retrieve it efficiently using the wIndexer network. Our decentralized indexing solution makes it simple to access blockchain data without relying on centralized RPC providers.

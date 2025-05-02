@@ -13,7 +13,7 @@ const HomePage: NextPage = () => {
   return (
     <div className="flex flex-col md:flex-row h-screen w-full overflow-hidden font-mono">
       {/* Main content area - takes full width on mobile, 4/5 on larger screens */}
-      <div className="relative w-full md:w-4/5 bg-[#5edaff] bg-opacity-80 p-4 sm:p-6 lg:p-10 flex flex-col justify-end text-gray-800 overflow-auto h-auto md:h-screen">
+      <div className="relative w-full md:w-4/5 bg-white bg-opacity-100 p-4 sm:p-6 lg:p-10 flex flex-col justify-end text-gray-800 overflow-auto h-auto md:h-screen">
         
         {/* Logo positioned at top left */}
         <div className="absolute top-4 left-4">
@@ -69,7 +69,7 @@ const HomePage: NextPage = () => {
       </div>
 
       {/* Right sidebar - takes full width on mobile, 1/5 on larger screens */}
-      <div className="w-full md:w-1/5 bg-black text-white p-4 sm:p-6 lg:p-8 flex flex-col justify-center space-y-4 h-auto md:h-screen overflow-auto">
+      <div className="w-full md:w-1/5 bg-[#0090FF] text-white p-4 sm:p-6 lg:p-8 flex flex-col justify-center space-y-4 h-auto md:h-screen overflow-auto">
         <div className="space-y-2">
           <p className="text-xs sm:text-sm">Join our community, have productive conversations, meet great people, engage with us talk about solana. we are waiting for you. join us on </p>
           <Link href="https://t.me/+MznFxMPcIhM3ZDI1" className="underline hover:text-gray-300 text-xs sm:text-sm">
@@ -100,12 +100,12 @@ const HomePage: NextPage = () => {
 
         <div className="pt-4 space-y-3">
           <Link href="/docs/api-reference" className="block w-full">
-            <button className="w-full bg-black text-white border border-white py-2 px-4 text-center hover:bg-gray-800 transition duration-200 text-xs sm:text-sm">
+            <button className="w-full bg-#0090FF text-white border border-white py-2 px-4 text-center hover:bg-gray-800 transition duration-200 text-xs sm:text-sm">
               API Reference
             </button>
           </Link>
           <Link href="/docs" className="block w-full">
-            <button className="w-full bg-black text-white border border-white py-2 px-4 text-center hover:bg-gray-800 transition duration-200 text-xs sm:text-sm">
+            <button className="w-full bg-#0090FF text-white border border-white py-2 px-4 text-center hover:bg-gray-800 transition duration-200 text-xs sm:text-sm">
               Get Started
             </button>
           </Link>
