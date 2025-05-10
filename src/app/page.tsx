@@ -27,7 +27,7 @@ const HomePage: NextPage = () => {
         </div>
 
         {/* Navigation header */}
-        <header className="absolute top-0 right-0 max-h-1/2 px-4 py-4 flex items-center justify-end backdrop-blur-md z-20">
+        <header className="absolute top-0 right-0 max-h-1/2 px-4 py-4 flex items-center justify-end">
           <nav className="ml-auto">
             <ul className="flex flex-wrap gap-3 sm:gap-6 text-gray-800 text-xs sm:text-sm md:text-base">
               <li>
