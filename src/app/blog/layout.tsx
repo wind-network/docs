@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
 
-
 export default function BlogLayout({
   children,
 }: {
@@ -9,16 +8,15 @@ export default function BlogLayout({
 }) {
   return (
     <div className="min-h-screen bg-white text-#0090FF">
-    <div className="flex">
-      <main className="flex-1 px-6 py-8">
-      <header className="absolute top-0 right-0 max-h-1/2 px-4 py-4 flex items-center justify-end backdrop-blur-md z-20">
+      <div className="flex flex-col">
+        <header className="sticky top-0 right-0 w-full px-4 py-4 flex items-center justify-end backdrop-blur-md z-20">
           <nav className="ml-auto">
-            <ul className="flex flex-wrap gap-3 sm:gap-6 text-gray-800 text-xs sm:text-sm md:text-base">
-                <li>
-                    <Link href="/" className="hover:underline">
-                        Home
-                    </Link>
-                </li>
+            <ul className="flex flex-wrap gap-2 sm:gap-4 md:gap-6 text-gray-800 text-xs sm:text-sm md:text-base">
+              <li>
+                <Link href="/" className="hover:underline">
+                  Home
+                </Link>
+              </li>
               <li>
                 <Link href="/docs" className="hover:underline">
                   Docs
@@ -42,9 +40,10 @@ export default function BlogLayout({
             </ul>
           </nav>
         </header>
-        {children}
-      </main>
+        <main className="flex-1 px-3 sm:px-6 pt-14 sm:pt-16">
+          {children}
+        </main>
+      </div>
     </div>
-  </div>
   );
 } 

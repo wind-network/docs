@@ -23,14 +23,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const content = await getBlogPostContent(slug);
   
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <div className="mb-6">
-        <Link href="/blog" className="text-[#0090FF] hover:underline text-sm">
-          ← Back to all posts
+    <div className="container mx-auto px-4 py-6 sm:py-8 md:py-12 max-w-4xl">
+      <div className="mb-4 sm:mb-6">
+        <Link href="/blog" className="text-[#0090FF] hover:underline text-xs sm:text-sm flex items-center">
+          <span className="mr-1">←</span> Back to all posts
         </Link>
       </div>
       
-      <article className="bg-white rounded-lg shadow-sm p-6 md:p-8">
+      <article className="bg-white rounded-lg shadow-sm p-4 sm:p-6 md:p-8 overflow-hidden">
         <MDXContent content={content} />
       </article>
     </div>
