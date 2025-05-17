@@ -83,7 +83,7 @@ const HomePage: NextPage = () => {
           </div>
           <div className="max-w-4xl mx-auto text-black">
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4"> 
-              <span className="underline">wind-network</span>: A Decentralized Autonomous Incentivized Indexing Layer for Solana
+              <span className="underline">Wind Network</span>: A Decentralized Autonomous Incentivized Indexing Layer for Solana
             </h1>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6">
               wind network is a new decentralized indexing system built for the high-speed Solana blockchain. It shifts data indexing away from a central point to a network of incentivized participants. By using the Interplanetary Data Machine (IPDM) and the libp2p gossipsub network, wind network aims to create a robust and open-source infrastructure capable of handling Solana&apos;s demanding data flow. The system combines peer-to-peer networking, efficient data processing, and economic rewards to provide reliable, scalable, and decentralized data indexing with high performance, low latency, and strong data consistency and availability.

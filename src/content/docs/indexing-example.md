@@ -6,7 +6,7 @@ This guide demonstrates how to index Solana blockchain data and retrieve it effi
 
 - Basic knowledge of Solana blockchain
 - Node.js environment (for SDK examples)
-- Access to wIndexer network at [test-may-us-01.windnetwork.ai](https://test-may-us-01.windnetwork.ai)
+- Access to wIndexer network at [test-may-us-01.windnetwork.ai](http://test-may-us-01.windnetwork.ai)
 
 ## Using the REST API
 
@@ -15,7 +15,7 @@ This guide demonstrates how to index Solana blockchain data and retrieve it effi
 Before indexing or retrieving data, ensure the wIndexer network is operational:
 
 ```bash
-curl https://test-may-us-01.windnetwork.ai/api/health
+curl http://test-may-us-01.windnetwork.ai/api/health
 ```
 
 #### Expected response:
@@ -34,26 +34,26 @@ When you submit transactions to the Solana network, Wind Network automatically i
 export SIGNATURE="your_transaction_signature"
 
 # Check if the transaction has been indexed
-curl https://test-may-us-01.windnetwork.ai/indexer1/api/transaction/$SIGNATURE
+curl http://test-may-us-01.windnetwork.ai/indexer1/api/transaction/$SIGNATURE
 ```
 
 ### Retrieving Indexed Data
 Once data is indexed, you can retrieve it through various endpoints:
 #### Recent Blocks
 ```bash
-curl https://test-may-us-01.windnetwork.ai/indexer1/api/blocks/recent
+curl http://test-may-us-01.windnetwork.ai/indexer1/api/blocks/recent
 ```
 #### Account Information
 ```bash
 # Replace with the account public key
 export ACCOUNT="account_public_key"
 
-curl https://test-may-us-01.windnetwork.ai/indexer1/api/account/$ACCOUNT
+curl http://test-may-us-01.windnetwork.ai/indexer1/api/account/$ACCOUNT
 ```
 #### Program Accounts
 ```bash
 # Replace with program ID
 export PROGRAM_ID="program_id"
 
-curl https://test-may-us-01.windnetwork.ai/indexer1/api/program/$PROGRAM_ID/accounts
+curl http://test-may-us-01.windnetwork.ai/indexer1/api/program/$PROGRAM_ID/accounts
 ```
