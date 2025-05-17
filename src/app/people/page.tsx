@@ -12,39 +12,19 @@ const PlaceholderAvatar = dynamic(() => import('./PlaceholderAvatar'), { ssr: fa
 const teamMembers = [
   {
     id: 1,
-    name: 'Alex Johnson',
+    name: 'Vivek Pal',
     role: 'Founder & Lead Developer',
-    bio: 'Alex has been building in the Solana ecosystem since 2021 and has deep expertise in distributed systems and blockchain technology.',
+    bio: 'Vivek has been building in the Solana ecosystem since 2022 and has deep expertise in distributed systems and blockchain technology.',
     links: {
-      github: 'https://github.com',
-      twitter: 'https://twitter.com',
+      github: 'https://github.com/vivekpal1',
+      twitter: 'https://twitter.com/vivekpal0x',
     },
   },
   {
     id: 2,
-    name: 'Sophia Chen',
-    role: 'Core Developer',
-    bio: 'Sophia specializes in designing and implementing high-performance systems with a focus on reliability and scalability.',
-    links: {
-      github: 'https://github.com',
-      twitter: 'https://twitter.com',
-    },
-  },
-  {
-    id: 3,
-    name: 'Marcus Taylor',
-    role: 'Tokenomics Lead',
-    bio: 'With a background in economics and crypto markets, Marcus designs incentive structures that align network participation with long-term value.',
-    links: {
-      github: 'https://github.com',
-      twitter: 'https://twitter.com',
-    },
-  },
-  {
-    id: 4,
-    name: 'Leila Patel',
-    role: 'Community Manager',
-    bio: 'Leila brings experience in community building and developer relations from multiple successful Web3 projects.',
+    name: 'Shivam Kumar',
+    role: 'DevOps Developer',
+    bio: 'Shivam specializes in infrastrcutre and deplyement tools.',
     links: {
       github: 'https://github.com',
       twitter: 'https://twitter.com',
@@ -133,7 +113,7 @@ export default function PeoplePage() {
             Check out our open positions or reach out directly.
           </p>
           <a 
-            href="mailto:jobs@windnetwork.example.com" 
+            href="mailto:vivek@windnetwork.ai" 
             className="inline-block bg-[#0090FF] text-white py-2 px-4 sm:px-6 rounded-md hover:bg-opacity-80 transition-colors text-sm sm:text-base"
           >
             View Open Positions
