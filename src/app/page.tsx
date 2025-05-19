@@ -98,8 +98,8 @@ const HomePage: NextPage = () => {
       }`}>
         <div className="flex flex-col space-y-6 h-full">
           <div className="h-auto">
-            <p className="text-xs sm:text-sm mb-2">Join our community, have productive conversations, meet great people, engage with us talk about solana. we are waiting for you. join us on </p>
-            <Link href="https://t.me/+MznFxMPcIhM3ZDI1" className="underline hover:text-gray-300 text-xs sm:text-sm">
+            <p className="text-xs sm:text-sm mb-2">Join our telegram group for early access, have productive conversations, meet great people, engage with us talk about solana. we are waiting for you. join us on </p>
+            <Link href="https://t.me/wind_network" className="underline hover:text-gray-300 text-xs sm:text-sm">
               telegram 
             </Link>
           </div>
