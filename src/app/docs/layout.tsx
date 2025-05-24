@@ -1,6 +1,5 @@
 import React from 'react';
 import DocsSidebar from '@/components/DocsSidebar';
-import TableOfContents from '@/components/TableOfContents';
 
 export default function DocsLayout({
   children,
@@ -14,10 +13,8 @@ export default function DocsLayout({
         <main className="flex-1 px-4 sm:px-6 py-6 sm:py-8 overflow-x-hidden">
           {children}
         </main>
-        <div className="hidden lg:block">
-          <TableOfContents />
-        </div>
+        {/* Remove TableOfContents from layout since it needs content prop */}
       </div>
     </div>
   );
-} 
+}

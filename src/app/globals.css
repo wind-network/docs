@@ -40,3 +40,41 @@ body {
 .prose h2, .prose h3 {
   scroll-margin-top: 5rem;
 }
+
+.mermaid-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.mermaid-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom scrollbar for code blocks */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.scrollbar-thumb-gray-600::-webkit-scrollbar-thumb {
+  background-color: #4b5563;
+  border-radius: 3px;
+}
+
+.scrollbar-track-gray-800::-webkit-scrollbar-track {
+  background-color: #1f2937;
+}
+
+/* Table responsive improvements */
+@media (max-width: 640px) {
+  .overflow-x-auto table {
+    font-size: 0.875rem;
+  }
+  
+  .overflow-x-auto th,
+  .overflow-x-auto td {
+    padding: 0.5rem;
+  }
+}
